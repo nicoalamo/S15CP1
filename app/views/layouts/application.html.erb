@@ -19,6 +19,7 @@
   <body>
     <%= render 'shared/navbar' %>
     <div class="container">
+
       <% if notice %>
         <div class="alert alert-dismissible alert-success">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -26,6 +27,7 @@
           <p><%= notice %></p>
         </div>
       <% end %>
+
       <% if alert %>
         <div class="alert alert-dismissible alert-success">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -33,7 +35,16 @@
           <p><%= alert %></p>
         </div>
       <% end %>
+
+      <% if logged? %>
+        Bienvenido <%= current_user.name %>, eres una gran persona.
+      <% else %>
+        El usuario NO ha ingresado
+      <% end %>
       <%= yield %>
+
     </div>
+
   </body>
+
 </html>
